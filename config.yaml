@@ -1,0 +1,121 @@
+    # Project definitions (do not edit)
+Task: track
+scorer: mice
+date: Aug31
+multianimalproject: true
+identity: true
+
+    # Project path (change when moving around)
+project_path: /mnt/data/home/forkosh/DLC/track-mice-2023-08-31
+
+    # Annotation data set configuration (and individual video cropping parameters)
+video_sets:
+  /home/forkosh/Documents/DEEPLABCUT/track-mice-2023-08-31\videos\BRAIN-wt.exp0051.day01.cam01.mp4:
+    crop: 0, 640, 0, 480
+  /home/forkosh/Documents/DEEPLABCUT/track-mice-2023-08-31\videos\BRAIN-wt.exp0052.day01.cam02.mp4:
+    crop: 0, 640, 0, 480
+  /home/forkosh/Documents/DEEPLABCUT/track-mice-2023-08-31\videos\BRAIN-wt.exp0053.day01.cam03.mp4:
+    crop: 0, 640, 0, 480
+  /home/forkosh/Documents/DEEPLABCUT/track-mice-2023-08-31\videos\BRAIN-wt.exp0054.day01.cam04.mp4:
+    crop: 0, 640, 0, 480
+  /home/forkosh/Documents/DEEPLABCUT/track-mice-2023-08-31\videos\BRAIN-wt.exp0061.day01.cam01.mp4:
+    crop: 0, 640, 0, 480
+  /home/forkosh/Documents/DEEPLABCUT/track-mice-2023-08-31\videos\BRAIN-wt.exp0062.day01.cam02.mp4:
+    crop: 0, 640, 0, 480
+  /home/forkosh/Documents/DEEPLABCUT/track-mice-2023-08-31\videos\BRAIN-wt.exp0063.day01.cam03.mp4:
+    crop: 0, 640, 0, 480
+  /home/forkosh/Documents/DEEPLABCUT/track-mice-2023-08-31\videos\BRAIN-wt.exp0064.day01.cam04.mp4:
+    crop: 0, 640, 0, 480
+  /home/forkosh/Documents/DEEPLABCUT/track-mice-2023-08-31\videos\BRAIN-wt.exp0071.day01.cam01.mp4:
+    crop: 0, 640, 0, 480
+  /home/forkosh/Documents/DEEPLABCUT/track-mice-2023-08-31\videos\BRAIN-wt.exp0072.day01.cam02.mp4:
+    crop: 0, 640, 0, 480
+  /home/forkosh/Documents/DEEPLABCUT/track-mice-2023-08-31\videos\BRAIN-wt.exp0073.day01.cam03.mp4:
+    crop: 0, 640, 0, 480
+  /home/forkosh/Documents/DEEPLABCUT/track-mice-2023-08-31\videos\BRAIN-wt.exp0074.day01.cam04.mp4:
+    crop: 0, 640, 0, 480
+  /home/forkosh/Documents/DEEPLABCUT/track-mice-2023-08-31\videos\BRAIN-wt.exp0081.day01.cam01.mp4:
+    crop: 0, 640, 0, 480
+  /home/forkosh/Documents/DEEPLABCUT/track-mice-2023-08-31\videos\BRAIN-wt.exp0082.day01.cam02.mp4:
+    crop: 0, 640, 0, 480
+  /home/forkosh/Documents/DEEPLABCUT/track-mice-2023-08-31\videos\BRAIN-wt.exp0083.day01.cam03.mp4:
+    crop: 0, 640, 0, 480
+  /home/forkosh/Documents/DEEPLABCUT/track-mice-2023-08-31\videos\BRAIN-wt.exp0084.day01.cam04.mp4:
+    crop: 0, 640, 0, 480
+individuals:
+- R
+- G
+- B
+- Y
+uniquebodyparts: []
+multianimalbodyparts:
+- L_ear
+- R_ear
+- nose
+- T_base
+- cntr
+- L_flnk
+- R_flnk
+- T_end
+- T_mid
+
+bodyparts: MULTI!
+
+    # Fraction of video to start/stop when extracting frames for labeling/refinement
+start: 0
+stop: 1
+numframes2pick: 20
+
+    # Plotting configuration
+skeleton:
+- - L_ear
+  - R_ear
+- - nose
+  - cntr
+- - R_ear
+  - nose
+- - T_base
+  - T_mid
+- - T_base
+  - cntr
+- - cntr
+  - R_flnk
+- - cntr
+  - L_flnk
+- - L_ear
+  - nose
+- - T_end
+  - T_mid
+skeleton_color: black
+pcutoff: 0.6
+dotsize: 5
+alphavalue: 0.7
+colormap: rainbow
+
+    # Training,Evaluation and Analysis configuration
+TrainingFraction:
+- 0.95
+iteration: 0
+default_net_type: dlcrnet_ms5
+default_augmenter: multi-animal-imgaug
+default_track_method: ellipse
+snapshotindex: -1
+batch_size: 8
+
+    # Cropping Parameters (for analysis and outlier frame detection)
+cropping: false
+    #if cropping is true for analysis, then set the values here:
+x1: 0
+x2: 640
+y1: 277
+y2: 624
+
+    # Refinement configuration (parameters from annotation dataset configuration also relevant in this stage)
+corner2move2:
+- 50
+- 50
+move2corner: true
+engine: tensorflow
+detector_snapshotindex: -1
+SuperAnimalConversionTables:
+detector_batch_size: 1
